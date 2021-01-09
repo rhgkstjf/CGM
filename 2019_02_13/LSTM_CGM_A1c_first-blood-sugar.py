@@ -133,12 +133,6 @@ X = tf.placeholder(tf.float32,shape=[None,7,1])
 Y = tf.placeholder(tf.float32,shape=[None,1])
 A1c = tf.placeholder(tf.float32,shape=[None,1])
 G = tf.placeholder(tf.float32,shape=[None,1])
-'''
-W = tf.Variable(tf.random_uniform([1,15], minval = -1, maxval = 1, dtype = tf.float32))
-b = tf.Variable(tf.zeros([1,15],dtype = tf.float32))
-
-W1 = tf.Variable(tf.random_uniform([15,1], minval = -1, maxval = 1, dtype = tf.float32))
-b1 = tf.Variable(tf.zeros([1,1],dtype = tf.float32))'''
 
 cell = tf.contrib.rnn.BasicLSTMCell(num_units=15,state_is_tuple=True,activation=tf.tanh)
 outputs, _states = tf.nn.dynamic_rnn(cell,X,dtype=tf.float32)
